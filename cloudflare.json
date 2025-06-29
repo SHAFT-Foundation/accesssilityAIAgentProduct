@@ -1,0 +1,79 @@
+{
+  "zone": {
+    "name": "accessibility-scanner.com",
+    "type": "full"
+  },
+  "security": {
+    "waf": {
+      "enabled": true,
+      "rules": [
+        {
+          "name": "Block SQL Injection",
+          "expression": "(http.request.uri.query contains \"union\" and http.request.uri.query contains \"select\")",
+          "action": "block"
+        },
+        {
+          "name": "Block XSS Attempts",
+          "expression": "(http.request.uri.query contains \"<script\" or http.request.body contains \"<script\")",
+          "action": "block"
+        },
+        {
+          "name": "Rate Limit API",
+          "expression": "(http.request.uri.path matches \"^/api/\")",
+          "action": "rate_limit",
+          "rate_limit": {
+            "threshold": 100,
+            "period": 60,
+            "action": "challenge"
+          }
+        }
+      ]
+    },
+    "ddos_protection": {
+      "enabled": true,
+      "sensitivity": "high"
+    },
+    "bot_management": {
+      "enabled": true,
+      "challenge_bad_bots": true,
+      "allow_verified_bots": true
+    }
+  },
+  "performance": {
+    "caching": {
+      "level": "aggressive",
+      "browser_cache_ttl": 31536000,
+      "edge_cache_ttl": 7200
+    },
+    "minification": {
+      "css": true,
+      "html": true,
+      "js": true
+    },
+    "compression": {
+      "brotli": true,
+      "gzip": true
+    }
+  },
+  "ssl": {
+    "mode": "full_strict",
+    "min_tls_version": "1.2",
+    "cipher_suites": ["ECDHE-RSA-AES128-GCM-SHA256", "ECDHE-RSA-AES256-GCM-SHA384"]
+  },
+  "page_rules": [
+    {
+      "url": "accessibility-scanner.com/api/*",
+      "settings": {
+        "cache_level": "bypass",
+        "security_level": "high"
+      }
+    },
+    {
+      "url": "accessibility-scanner.com/static/*",
+      "settings": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 31536000
+      }
+    }
+  ]
+}

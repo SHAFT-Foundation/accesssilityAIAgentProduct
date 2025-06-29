@@ -1,0 +1,154 @@
+# Datadog monitoring configuration
+api_version: v1
+kind: Monitor
+
+metadata:
+  name: accessibility-scanner-monitoring
+
+spec:
+  # API Response Time Monitor
+  - name: "API Response Time High"
+    type: metric alert
+    query: "avg(last_5m):avg:accessibility_scanner.api.response_time{*} > 500"
+    message: |
+      API response time is above 500ms
+      @pagerduty-accessibility-scanner
+    tags:
+      - service:accessibility-scanner
+      - team:backend
+    options:
+      thresholds:
+        critical: 500
+        warning: 300
+      notify_audit: false
+      require_full_window: false
+      new_host_delay: 300
+
+  # Error Rate Monitor  
+  - name: "API Error Rate High"
+    type: metric alert
+    query: "avg(last_5m):sum:accessibility_scanner.api.errors{*} / sum:accessibility_scanner.api.requests{*} > 0.05"
+    message: |
+      API error rate is above 5%
+      @pagerduty-accessibility-scanner
+    tags:
+      - service:accessibility-scanner
+      - team:backend
+
+  # Database Connection Monitor
+  - name: "Database Connection Issues"
+    type: metric alert
+    query: "avg(last_2m):avg:accessibility_scanner.db.connection_errors{*} > 0"
+    message: |
+      Database connection errors detected
+      @pagerduty-accessibility-scanner
+    tags:
+      - service:accessibility-scanner
+      - team:backend
+
+  # Queue Processing Monitor
+  - name: "Queue Processing Delayed"
+    type: metric alert
+    query: "avg(last_10m):avg:accessibility_scanner.queue.processing_time{*} > 300"
+    message: |
+      Queue processing time is above 5 minutes
+      @slack-dev-alerts @pagerduty-accessibility-scanner
+    tags:
+      - service:accessibility-scanner
+      - team:backend
+
+  # Memory Usage Monitor
+  - name: "High Memory Usage"
+    type: metric alert
+    query: "avg(last_5m):avg:system.mem.pct_usable{service:accessibility-scanner} < 0.1"
+    message: |
+      Memory usage is above 90%
+      @pagerduty-accessibility-scanner
+    tags:
+      - service:accessibility-scanner
+      - team:infrastructure
+
+  # Frontend Core Web Vitals
+  - name: "Core Web Vitals Degraded"
+    type: metric alert
+    query: "avg(last_15m):avg:accessibility_scanner.frontend.lcp{*} > 2500"
+    message: |
+      Largest Contentful Paint is above 2.5s
+      @slack-frontend-alerts
+    tags:
+      - service:accessibility-scanner
+      - team:frontend
+
+  # Stripe Payment Failures
+  - name: "Payment Processing Issues"
+    type: metric alert
+    query: "sum(last_10m):sum:accessibility_scanner.payments.failed{*} > 5"
+    message: |
+      Multiple payment failures detected
+      @pagerduty-accessibility-scanner @slack-billing-alerts
+    tags:
+      - service:accessibility-scanner
+      - team:billing
+
+# Dashboard Configuration
+dashboards:
+  - name: "Accessibility Scanner Overview"
+    widgets:
+      - title: "API Performance"
+        type: timeseries
+        requests:
+          - q: "avg:accessibility_scanner.api.response_time{*}"
+          - q: "sum:accessibility_scanner.api.requests{*}.as_rate()"
+          - q: "sum:accessibility_scanner.api.errors{*}.as_rate()"
+      
+      - title: "Queue Status"
+        type: query_value
+        requests:
+          - q: "sum:accessibility_scanner.queue.waiting{*}"
+          - q: "sum:accessibility_scanner.queue.processing{*}"
+          - q: "sum:accessibility_scanner.queue.failed{*}"
+      
+      - title: "User Activity"
+        type: timeseries
+        requests:
+          - q: "sum:accessibility_scanner.users.active{*}"
+          - q: "sum:accessibility_scanner.scans.completed{*}.as_rate()"
+          - q: "sum:accessibility_scanner.prs.created{*}.as_rate()"
+
+# Synthetic Tests
+synthetics:
+  - name: "Homepage Availability"
+    type: browser
+    config:
+      request:
+        url: "https://accessibility-scanner.com"
+        method: GET
+      assertions:
+        - type: statusCode
+          operator: is
+          target: 200
+        - type: responseTime
+          operator: lessThan
+          target: 3000
+    locations: ["aws:us-east-1", "aws:eu-west-1"]
+    options:
+      tick_every: 300 # 5 minutes
+      
+  - name: "API Health Check"
+    type: api
+    config:
+      request:
+        url: "https://api.accessibility-scanner.com/health"
+        method: GET
+        headers:
+          User-Agent: "Datadog Synthetic"
+      assertions:
+        - type: statusCode
+          operator: is
+          target: 200
+        - type: body
+          operator: contains
+          target: "healthy"
+    locations: ["aws:us-east-1", "aws:eu-west-1"]
+    options:
+      tick_every: 60 # 1 minute

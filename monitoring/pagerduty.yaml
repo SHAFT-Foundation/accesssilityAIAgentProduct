@@ -1,0 +1,114 @@
+# PagerDuty Integration Configuration
+services:
+  - name: "Accessibility Scanner API"
+    description: "Critical alerts for the accessibility scanner API"
+    escalation_policy: "Engineering Escalation"
+    alert_creation: "create_alerts_and_incidents"
+    incident_urgency_rule:
+      type: "constant"
+      urgency: "high"
+    auto_resolve_timeout: 14400 # 4 hours
+    acknowledgement_timeout: 1800 # 30 minutes
+    integrations:
+      - type: "datadog"
+        name: "Datadog Integration"
+      - type: "sentry"
+        name: "Sentry Integration"
+
+  - name: "Accessibility Scanner Infrastructure"
+    description: "Infrastructure and database alerts"
+    escalation_policy: "Infrastructure Escalation"
+    alert_creation: "create_alerts_and_incidents"
+    incident_urgency_rule:
+      type: "constant"
+      urgency: "high"
+
+escalation_policies:
+  - name: "Engineering Escalation"
+    escalation_rules:
+      - escalation_delay_in_minutes: 0
+        targets:
+          - type: "user"
+            id: "primary-engineer"
+      - escalation_delay_in_minutes: 15
+        targets:
+          - type: "user"
+            id: "secondary-engineer"
+      - escalation_delay_in_minutes: 30
+        targets:
+          - type: "user"
+            id: "engineering-manager"
+
+  - name: "Infrastructure Escalation"
+    escalation_rules:
+      - escalation_delay_in_minutes: 0
+        targets:
+          - type: "user"
+            id: "devops-engineer"
+      - escalation_delay_in_minutes: 20
+        targets:
+          - type: "user"
+            id: "senior-devops"
+
+# Incident Response Runbooks
+runbooks:
+  - name: "API Down Response"
+    steps:
+      - "Check Railway dashboard for service status"
+      - "Verify Supabase database connectivity"
+      - "Check Cloudflare status"
+      - "Review recent deployments"
+      - "Escalate to engineering manager if unresolved in 30 minutes"
+    
+  - name: "Database Issues Response"
+    steps:
+      - "Check Supabase dashboard for alerts"
+      - "Review database connection pool status"
+      - "Check for long-running queries"
+      - "Verify backup integrity"
+      - "Consider read replica failover if needed"
+
+  - name: "Payment Processing Issues"
+    steps:
+      - "Check Stripe dashboard for service status"
+      - "Review webhook delivery status"
+      - "Verify API key validity"
+      - "Check recent failed payments"
+      - "Notify finance team for billing impact"
+
+# Response Team Configuration
+teams:
+  - name: "Engineering"
+    members:
+      - "primary-engineer"
+      - "secondary-engineer"
+      - "engineering-manager"
+    
+  - name: "DevOps"
+    members:
+      - "devops-engineer"
+      - "senior-devops"
+    
+  - name: "On-Call Rotation"
+    schedule:
+      - user: "primary-engineer"
+        start_time: "2025-01-01T00:00:00Z"
+        duration_hours: 168 # 1 week
+      - user: "secondary-engineer"
+        start_time: "2025-01-08T00:00:00Z"
+        duration_hours: 168
+
+# Notification Rules
+notification_rules:
+  - urgency: "high"
+    contact_method: "phone"
+    start_delay_in_minutes: 0
+  - urgency: "high"
+    contact_method: "sms"
+    start_delay_in_minutes: 0
+  - urgency: "high"
+    contact_method: "email"
+    start_delay_in_minutes: 5
+  - urgency: "low"
+    contact_method: "email"
+    start_delay_in_minutes: 0

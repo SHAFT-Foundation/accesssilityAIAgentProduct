@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# High-traffic pages
+Allow: /
+Allow: /pricing
+Allow: /features
+Allow: /security
+Allow: /docs
+
+# Block auth and admin pages
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /api/
+
+# Block test and staging paths
+Disallow: /*?test=*
+Disallow: /*?debug=*
+Disallow: /staging/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://accessibility-scanner.com/sitemap.xml
+
+# Crawl delay for aggressive bots
+User-agent: *
+Crawl-delay: 1

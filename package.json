@@ -1,0 +1,49 @@
+{
+  "name": "accessibility-scanner",
+  "version": "1.0.0",
+  "description": "AI-powered accessibility scanner that creates PRs with fixes",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:unit": "turbo run test:unit",
+    "test:integration": "turbo run test:integration",
+    "test:e2e": "cd tests/e2e && python -m pytest -v",
+    "test:e2e:install": "cd tests/e2e && pip install -r requirements.txt && playwright install",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean",
+    "db:migrate": "cd apps/api && npm run db:migrate",
+    "db:seed": "cd apps/api && npm run db:seed",
+    "docker:build": "docker build -t accessibility-scanner-api apps/api",
+    "docker:run": "docker run -p 3001:3001 --env-file apps/api/.env accessibility-scanner-api"
+  },
+  "devDependencies": {
+    "turbo": "^1.10.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanmmmmm/accesssilityAIAgentProduct.git"
+  },
+  "author": "Ryan Medlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanmmmmm/accesssilityAIAgentProduct/issues"
+  },
+  "homepage": "https://github.com/ryanmmmmm/accesssilityAIAgentProduct#readme"
+}
