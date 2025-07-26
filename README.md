@@ -1,11 +1,14 @@
 # AI Accessibility Scanner - Automated WCAG Compliance with PR Fixes
 
-![Screenshot 1](apps/web/public/Screenshot%202025-07-26%20at%202.35.26%20PM.png)
-![Screenshot 2](apps/web/public/Screenshot%202025-07-26%20at%202.48.42%20PM.png)
-![Screenshot 3](apps/web/public/Screenshot%202025-07-26%20at%202.48.51%20PM.png)
-![Screenshot 4](apps/web/public/Screenshot%202025-07-26%20at%202.49.00%20PM.png)
-![Screenshot 5](apps/web/public/Screenshot%202025-07-26%20at%202.49.08%20PM.png)
-![Screenshot 6](apps/web/public/Screenshot%202025-07-26%20at%202.49.15%20PM.png)
+> As AI agents begin to power everything from productivity tools to financial services, those built with full accessibility and inclusion by design aren't just ethically aligned—they are more interoperable, more likely to be adopted, and more trusted in the emerging networks of AI agents that interact, evaluate, and select one another.
+> In this new paradigm, accessibility isn't a feature—it's a network advantage.
+
+![Screenshot 1](<apps/web/public/Screenshot 2025-07-26 at 2.35.26 PM.png>)
+![Screenshot 2](<apps/web/public/Screenshot 2025-07-26 at 2.48.42 PM.png>)
+![Screenshot 3](<apps/web/public/Screenshot 2025-07-26 at 2.48.51 PM.png>)
+![Screenshot 4](<apps/web/public/Screenshot 2025-07-26 at 2.49.00 PM.png>)
+![Screenshot 5](<apps/web/public/Screenshot 2025-07-26 at 2.49.08 PM.png>)
+![Screenshot 6](<apps/web/public/Screenshot 2025-07-26 at 2.49.15 PM.png>)
 
 ## We Don't Just Find Accessibility Issues. We Fix Them.
 
