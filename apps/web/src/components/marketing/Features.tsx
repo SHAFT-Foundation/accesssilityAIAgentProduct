@@ -1,4 +1,4 @@
-import { GitBranch, TestTube, Accessibility, Zap, FileText, Settings } from 'lucide-react';
+import { GitBranch, TestTube, Accessibility, Zap, FileText, Settings, Shield, BarChart3, HeadphonesIcon, FileCheck } from 'lucide-react';
 
 export function Features() {
   const features = [
@@ -14,23 +14,33 @@ export function Features() {
     },
     {
       icon: Accessibility,
-      title: 'WCAG 2.2 Coverage',
-      description: 'Full AA and AAA compliance checks',
+      title: 'ADA, AODA & EAA Compliance',
+      description: 'Full WCAG 2.2 AA/AAA + regional accessibility laws',
     },
     {
-      icon: Zap,
-      title: 'Real Review Process',
-      description: 'PRs go through your normal workflow',
+      icon: Shield,
+      title: 'Litigation Protection',
+      description: 'Legal defense package with automated proof of effort',
     },
     {
-      icon: FileText,
-      title: 'Incremental Fixes',
-      description: 'Small, reviewable changes',
+      icon: BarChart3,
+      title: 'Monthly Impact Reports',
+      description: 'Detailed accessibility metrics and remediation tracking',
+    },
+    {
+      icon: HeadphonesIcon,
+      title: 'Dedicated Support',
+      description: 'Expert accessibility consultants available 24/7',
+    },
+    {
+      icon: FileCheck,
+      title: 'Automated Documentation',
+      description: 'Court-ready compliance reports and audit trails',
     },
     {
       icon: Settings,
       title: 'CI/CD Ready',
-      description: 'Integrates with your pipeline',
+      description: 'Integrates with your existing development pipeline',
     },
   ];
 
@@ -39,11 +49,15 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Built for Developer Workflows
+            Complete Legal Protection & Compliance
           </h2>
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            More than just code fixes — we provide comprehensive legal protection, 
+            automated compliance documentation, and expert support to defend against accessibility litigation.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature) => (
             <div key={feature.title} className="bg-white p-6 rounded-lg border border-gray-200">
               <feature.icon className="w-8 h-8 text-blue-600 mb-4" />

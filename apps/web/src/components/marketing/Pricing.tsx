@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Shield, FileCheck, BarChart3, HeadphonesIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export function Pricing() {
@@ -15,9 +15,10 @@ export function Pricing() {
       features: [
         '1 repository',
         '2 PRs per month',
-        'Basic WCAG checks',
+        'Basic WCAG 2.2 AA checks',
         'Email support',
         '7-day scan history',
+        'Basic compliance reports',
       ],
       cta: 'Start Free',
       popular: false,
@@ -30,9 +31,11 @@ export function Pricing() {
       features: [
         '1 repository',
         'Unlimited PRs',
-        'Full WCAG 2.2 AA/AAA',
-        'Priority support',
-        'Unlimited scan history',
+        'ADA, AODA & EAA compliance',
+        'Monthly accessibility reports',
+        'Automated proof of effort',
+        'Priority customer support',
+        'Detailed remediation reports',
         'Custom test integration',
         'Slack notifications',
       ],
@@ -47,11 +50,14 @@ export function Pricing() {
       features: [
         'Multiple repositories',
         'Unlimited PRs',
+        'Full litigation support package',
+        'Litigation pledge & legal defense',
+        'Dedicated accessibility consultant',
+        'Custom compliance reporting',
         'Priority support & SLA',
-        'Custom integrations',
         'SSO authentication',
-        'Dedicated account manager',
-        'Custom reporting',
+        'Custom integrations',
+        'Court-ready documentation',
       ],
       cta: 'Contact Sales',
       popular: false,
@@ -149,14 +155,47 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* Compliance Guarantee */}
+        <div className="mt-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 text-center border border-green-200">
+          <div className="flex items-center justify-center mb-4">
+            <Shield className="w-8 h-8 text-green-600 mr-3" />
+            <h3 className="text-2xl font-bold text-gray-900">
+              🛡️ Litigation Protection Guarantee
+            </h3>
+          </div>
+          <p className="text-gray-700 mb-6 max-w-3xl mx-auto">
+            <strong>Every paid plan includes our litigation defense pledge.</strong> If you face accessibility-related 
+            legal action while actively using our service, we provide legal support documentation, 
+            expert testimony, and proof of good-faith compliance efforts. Your accessibility improvements 
+            are automatically documented for legal protection.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            <div className="bg-white rounded-lg p-4 border border-green-200">
+              <FileCheck className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-gray-900">Automated Documentation</h4>
+              <p className="text-sm text-gray-600 mt-1">Court-ready compliance reports generated automatically</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-green-200">
+              <BarChart3 className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-gray-900">Impact Tracking</h4>
+              <p className="text-sm text-gray-600 mt-1">Monthly reports showing measurable accessibility improvements</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-green-200">
+              <HeadphonesIcon className="w-6 h-6 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-gray-900">Expert Support</h4>
+              <p className="text-sm text-gray-600 mt-1">Accessibility consultants available for legal testimony</p>
+            </div>
+          </div>
+        </div>
+
         {/* Enterprise Contact Form */}
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8 text-center">
+        <div className="mt-8 bg-gray-50 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Need Something Custom?
           </h3>
           <p className="text-gray-600 mb-6">
             Let's discuss your specific requirements for multiple repositories, 
-            custom integrations, or enterprise features.
+            custom integrations, or enterprise legal protection features.
           </p>
           <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
             Schedule a Call

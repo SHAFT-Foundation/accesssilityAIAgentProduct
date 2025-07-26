@@ -1,7 +1,9 @@
 import { Hero } from '@/components/marketing/Hero';
 import { ValueProposition } from '@/components/marketing/ValueProposition';
+import { AIAgentSection } from '@/components/marketing/AIAgentSection';
 import { ProblemSection } from '@/components/marketing/ProblemSection';
 import { SolutionSection } from '@/components/marketing/SolutionSection';
+import { LegalCompliance } from '@/components/marketing/LegalCompliance';
 import { SecuritySection } from '@/components/marketing/SecuritySection';
 import { HowItWorks } from '@/components/marketing/HowItWorks';
 import { Features } from '@/components/marketing/Features';
@@ -58,8 +60,10 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero />
         <ValueProposition />
+        <AIAgentSection />
         <ProblemSection />
         <SolutionSection />
+        <LegalCompliance />
         <SecuritySection />
         <HowItWorks />
         <Features />
