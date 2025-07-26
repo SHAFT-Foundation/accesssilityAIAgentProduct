@@ -276,9 +276,7 @@ Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct
 
 ### Support
 
-- Documentation: [docs.accessibility-scanner.com](https://docs.accessibility-scanner.com)
-- Email: support@accessibility-scanner.com
-- Enterprise Support: enterprise@accessibility-scanner.com
+For support, please open an issue in this repository or contact us through our website.
 
 ### License
 
