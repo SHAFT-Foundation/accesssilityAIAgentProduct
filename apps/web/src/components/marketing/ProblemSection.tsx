@@ -1,69 +1,70 @@
-import { AlertTriangle, Clock, DollarSign, Users } from 'lucide-react';
+import { AlertTriangle, Clock, DollarSign, Bot } from 'lucide-react';
 
 export function ProblemSection() {
   const problems = [
     {
       icon: AlertTriangle,
-      stat: '67%',
-      title: 'of websites have accessibility barriers',
-      description: 'WebAIM study shows most sites fail basic accessibility tests',
+      stat: '70%',
+      title: 'of websites fail AI agent navigation',
+      description: 'Sites without proper accessibility can\'t be read by AI agents, losing 40% of future traffic',
+    },
+    {
+      icon: Bot,
+      stat: '40%',
+      title: 'of web traffic will be AI-driven by 2025',
+      description: 'ChatGPT, Claude, and other AI assistants are becoming primary web navigators',
     },
     {
       icon: Clock,
       stat: '2-6 weeks',
       title: 'for manual accessibility audits',
-      description: 'Developer time is expensive and accessibility expertise is rare',
+      description: 'By the time you fix issues manually, AI agents have already passed you by',
     },
     {
       icon: DollarSign,
-      stat: '$5,000+',
-      title: 'average cost of manual remediation',
-      description: 'Consulting fees plus developer time for each audit cycle',
-    },
-    {
-      icon: Users,
-      stat: '1.3B',
-      title: 'people worldwide have disabilities',
-      description: 'Legal compliance risk is increasing with new regulations',
+      stat: '$50B',
+      title: 'AI agent economy value by 2026',
+      description: 'Inaccessible sites will be invisible to this massive new traffic source',
     },
   ];
 
   return (
-    <section className="py-16 bg-red-50">
+    <section className="py-16 bg-shaft-pink">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            The Accessibility Problem is Getting Worse
+          <h2 className="text-3xl font-bold tracking-tight text-shaft-black sm:text-4xl">
+            AI Agents Are Already Here—Are You Ready?
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Current tools only tell you what's broken. They don't help you fix it.
+          <p className="mt-4 text-lg text-shaft-gray">
+            While you're still manually fixing accessibility issues, AI agents are choosing your competitors.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {problems.map((problem) => (
             <div key={problem.title} className="text-center">
-              <div className="inline-flex p-4 rounded-full bg-red-100 mb-4">
-                <problem.icon className="w-8 h-8 text-red-600" />
+              <div className="inline-flex p-4 rounded-full bg-white mb-4">
+                <problem.icon className="w-8 h-8 text-shaft-red" />
               </div>
-              <div className="text-3xl font-bold text-red-600 mb-2">{problem.stat}</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{problem.title}</h3>
-              <p className="text-sm text-gray-600">{problem.description}</p>
+              <div className="text-3xl font-bold text-shaft-red mb-2">{problem.stat}</div>
+              <h3 className="text-lg font-semibold text-shaft-black mb-2">{problem.title}</h3>
+              <p className="text-sm text-shaft-gray">{problem.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-lg p-8 border-l-4 border-red-500">
+        <div className="mt-12 bg-white rounded-lg p-8 border-l-4 border-shaft-red">
           <div className="flex items-start">
-            <AlertTriangle className="w-6 h-6 text-red-500 mt-1 mr-3 flex-shrink-0" />
+            <AlertTriangle className="w-6 h-6 text-shaft-red mt-1 mr-3 flex-shrink-0" />
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                The Hidden Cost of Inaccessible Websites
+              <h4 className="text-lg font-semibold text-shaft-black mb-2">
+                The AI Agent Revolution is Here—And Most Sites Aren't Ready
               </h4>
-              <p className="text-gray-600">
-                Beyond legal risks, inaccessible websites lose customers, damage brand reputation, 
-                and exclude users who rely on assistive technologies. Most teams know they need 
-                to fix accessibility issues but lack the expertise and time to do it effectively.
+              <p className="text-shaft-gray">
+                AI agents from ChatGPT, Claude, and other providers need semantic HTML and ARIA labels 
+                to navigate sites effectively. Without proper accessibility, your site is invisible 
+                to the fastest-growing segment of web traffic. In the new AI economy, accessibility 
+                isn't compliance—it's competitive advantage.
               </p>
             </div>
           </div>

@@ -17,6 +17,7 @@ import { scansRoutes } from './routes/scans';
 import { issuesRoutes } from './routes/issues';
 import { pullRequestsRoutes } from './routes/pull-requests';
 import { auditLogsRoutes } from './routes/audit-logs';
+import waitlistRoutes from './routes/waitlist';
 import { metricsMiddleware } from './middleware/metrics';
 import { initSentry } from './services/sentry';
 import { socketService } from './services/socket';
@@ -69,6 +70,7 @@ app.use('/health', healthRoutes);
 app.use('/auth', authRoutes);
 app.use('/api/stripe', stripeRoutes);
 app.use('/api/metrics', metricsRoutes);
+app.use('/api/waitlist', waitlistRoutes);
 
 // Core API routes (protected)
 app.use('/api/repositories', repositoriesRoutes);

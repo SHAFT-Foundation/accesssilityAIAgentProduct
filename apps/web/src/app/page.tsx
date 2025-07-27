@@ -1,6 +1,7 @@
 import { Hero } from '@/components/marketing/Hero';
 import { ValueProposition } from '@/components/marketing/ValueProposition';
 import { AIAgentSection } from '@/components/marketing/AIAgentSection';
+import { NetworkAdvantage } from '@/components/marketing/NetworkAdvantage';
 import { ProblemSection } from '@/components/marketing/ProblemSection';
 import { SolutionSection } from '@/components/marketing/SolutionSection';
 import { LegalCompliance } from '@/components/marketing/LegalCompliance';
@@ -9,6 +10,9 @@ import { HowItWorks } from '@/components/marketing/HowItWorks';
 import { Features } from '@/components/marketing/Features';
 import { Pricing } from '@/components/marketing/Pricing';
 import { TrustSignals } from '@/components/marketing/TrustSignals';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { WaitlistForm } from '@/components/marketing/WaitlistForm';
 
 // FAQ Schema for better SEO
 const faqSchema = {
@@ -57,18 +61,58 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <main className="min-h-screen">
+      <Header />
+      <main className="min-h-screen pt-16">
         <Hero />
         <ValueProposition />
         <AIAgentSection />
+        <NetworkAdvantage />
         <ProblemSection />
         <SolutionSection />
         <LegalCompliance />
-        <SecuritySection />
+        <div id="security">
+          <SecuritySection />
+        </div>
         <HowItWorks />
-        <Features />
-        <Pricing />
+        <div id="features">
+          <Features />
+        </div>
+        <div id="pricing">
+          <Pricing />
+        </div>
         <TrustSignals />
+        
+        {/* Waitlist CTA Section */}
+        <section className="bg-shaft-light-gray py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold tracking-tight text-shaft-black sm:text-4xl">
+                Ready to Make Your Site Accessible?
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-shaft-gray">
+                Join thousands of developers who are already using AI to automate accessibility fixes.
+                Be the first to know when we launch.
+              </p>
+              <div className="mt-8 flex justify-center">
+                <div className="w-full max-w-md">
+                  <WaitlistForm 
+                    source="bottom_cta"
+                    placeholder="Enter your email"
+                    buttonText="Get Early Access"
+                    showCount={true}
+                    className="space-y-3"
+                  />
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-shaft-gray">
+                No spam. Unsubscribe anytime. We'll send you product updates and launch notifications.
+              </p>
+            </div>
+          </div>
+        </section>
+        <div id="contact">
+          <Footer />
+        </div>
       </main>
     </>
   );

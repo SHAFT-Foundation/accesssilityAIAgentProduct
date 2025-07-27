@@ -170,6 +170,16 @@ model AuditLog {
   @@map("audit_logs")
 }
 
+model Waitlist {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?  // "header", "bottom", "pricing", etc.
+  metadata  Json?    // Additional context like referrer, utm params
+  createdAt DateTime @default(now())
+  
+  @@map("waitlist")
+}
+
 // Enums
 enum SubscriptionType {
   FREE

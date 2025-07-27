@@ -27,39 +27,40 @@ export function AIAgentSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-24 sm:py-32">
+    <section className="bg-gradient-to-b from-shaft-light-gray to-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header with Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div>
-            <div className="mb-6 inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm text-blue-800">
+            <div className="mb-6 inline-flex items-center rounded-full bg-shaft-pink px-4 py-2 text-sm text-shaft-red font-semibold">
               <Bot className="mr-2 h-4 w-4" />
-              AI Agent Revolution
+              FIRST AI AGENT-COMPATIBLE SCANNER
             </div>
             
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-bold tracking-tight text-shaft-black sm:text-4xl lg:text-5xl">
               AI Agents Can't Read{' '}
-              <span className="text-red-600">Broken Websites</span>
+              <span className="text-shaft-red">Broken Websites</span>
             </h2>
             
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              ChatGPT, Claude, and thousands of AI assistants are browsing the web right now. 
-              They need semantic HTML, proper ARIA labels, and accessible navigation to function.
+            <p className="mt-6 text-lg leading-8 text-shaft-gray">
+              We're the <span className="font-semibold text-shaft-black">first and only</span> scanner 
+              designed specifically for AI agent compatibility. While others focus on human accessibility, 
+              we ensure your site works for the AI-powered future.
             </p>
 
-            <p className="mt-4 text-lg leading-8 text-gray-900 font-semibold">
+            <p className="mt-4 text-lg leading-8 text-shaft-black font-semibold">
               If your site isn't accessible, AI agents simply skip it. No exceptions.
             </p>
 
             <div className="mt-8 flex items-center space-x-6">
               <div className="text-center">
-                <p className="text-3xl font-bold text-red-600">40%</p>
-                <p className="text-sm text-gray-600">of web traffic will be AI-driven by 2025</p>
+                <p className="text-3xl font-bold text-shaft-red">40%</p>
+                <p className="text-sm text-shaft-gray">of web traffic will be AI-driven by 2025</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-red-600">70%</p>
-                <p className="text-sm text-gray-600">of sites fail AI navigation tests</p>
+                <p className="text-3xl font-bold text-shaft-red">70%</p>
+                <p className="text-sm text-shaft-gray">of sites fail AI navigation tests</p>
               </div>
             </div>
           </div>

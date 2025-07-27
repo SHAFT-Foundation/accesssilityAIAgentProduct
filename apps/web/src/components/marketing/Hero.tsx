@@ -19,53 +19,59 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-      
+    <section className="relative overflow-hidden bg-white">
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="text-center">
           {/* Announcement Bar */}
-          <div className="mx-auto mb-8 flex max-w-fit items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-sm shadow-sm">
-            <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
-            <span className="text-gray-600">SOC 2 Certified • GDPR Compliant • Zero Code Storage</span>
+          <div className="mx-auto mb-8 flex max-w-fit items-center rounded-full border border-shaft-red bg-shaft-pink px-4 py-2 text-sm">
+            <span className="font-semibold text-shaft-red">🚀 WORLD'S FIRST</span>
+            <span className="mx-2 text-shaft-gray">•</span>
+            <span className="text-shaft-black font-medium">AI Agent-Compatible Accessibility Scanner</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            We Don&apos;t Just Find Accessibility Issues.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              We Fix Them.
+          <h1 className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-shaft-black sm:text-6xl">
+            The First Scanner That Makes Sites{' '}
+            <span className="text-shaft-red">
+              AI Agent Compatible
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-            The only accessibility tool that submits PRs with actual code fixes. 
-            Our AI agents scan your site, write the fix, test it, and submit a PR. 
-            You just review and merge.
+          <p className="mx-auto mt-6 max-w-3xl text-xl leading-8 text-shaft-black font-medium">
+            In the AI agent economy, accessibility isn't a feature—it's a network advantage.
+          </p>
+          
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-shaft-gray">
+            The only tool that ensures your site works for both humans AND AI agents. 
+            We scan, write fixes, test them, and submit PRs—making your site ready for the 
+            AI-powered future where agents evaluate and select each other.
           </p>
 
-          {/* Subtle AI Agent Message */}
-          <div className="mx-auto mt-6 max-w-2xl">
-            <p className="text-center text-sm text-gray-500">
-              <span className="font-medium text-blue-600">⚡ AI Agents Need Accessible Sites</span> • 
-              ChatGPT, Claude & AI assistants can't navigate broken websites • 
-              <span className="font-medium">Be AI-ready or be invisible</span>
+          {/* AI Agent Network Message */}
+          <div className="mx-auto mt-6 max-w-3xl bg-shaft-light-gray border border-gray-200 rounded-lg p-4">
+            <p className="text-center text-sm text-shaft-gray italic">
+            "As AI agents begin to power everything from productivity tools to financial services, 
+              those built with full accessibility and inclusion by design aren't just ethically aligned—they 
+              are more <span className="text-shaft-red">interoperable</span>, 
+              more likely to be <span className="text-shaft-red">adopted</span>, 
+              and more <span className="text-shaft-red">trusted</span> in the emerging 
+              networks of AI agents that interact, evaluate, and select one another.
+              In this new paradigm, accessibility isn't a feature—it's a network advantage."
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <button 
-              className="group rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-200"
+              className="group rounded-md bg-shaft-red px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-shaft-red transition-all duration-200"
               onClick={handleStartFree}
             >
               Start Free - Get 2 PRs
               <ArrowRight className="ml-2 h-4 w-4 inline group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
-              className="group text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors duration-200"
+              className="group text-sm font-semibold leading-6 text-shaft-black hover:text-shaft-red transition-colors duration-200"
               onClick={handleWatchDemo}
             >
               <Play className="mr-2 h-4 w-4 inline" />

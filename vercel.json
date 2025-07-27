@@ -13,22 +13,9 @@
     }
   ],
   "projectSettings": {
-    "framework": "nextjs"
+    "framework": "nextjs",
+    "rootDirectory": "apps/web"
   },
-  "env": {
-    "NEXT_PUBLIC_API_URL": "@api_url",
-    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "@stripe_publishable_key",
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key"
-  },
-  "build": {
-    "env": {
-      "NEXT_TELEMETRY_DISABLED": "1"
-    }
-  },
-  "functions": {
-    "apps/web/src/pages/api/*.js": {
-      "maxDuration": 30
-    }
-  }
+  "buildCommand": "cd apps/web && npm install --legacy-peer-deps && npm run build",
+  "installCommand": "cd apps/web && npm install --legacy-peer-deps"
 }
