@@ -183,3 +183,13 @@
 2025-07-27T02:53:07.538066Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }}))
 2025-07-27T02:53:14.138825Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/components/marketing/WaitlistForm.tsx.tmp.22860.1753584794107"), AnchoredSystemPathBuf("apps/web/src/components/marketing/WaitlistForm.tsx")}
 2025-07-27T02:53:14.138855Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-07-27T02:54:37.415530Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("debug-live-site.html.tmp.22860.1753584877354"), AnchoredSystemPathBuf("debug-live-site.html")}
+2025-07-27T02:54:37.415553Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:54:41.910734Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("debug-live-site.html")}
+2025-07-27T02:54:41.910902Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:55:16.598244Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("test-form-direct.js.tmp.22860.1753584916509"), AnchoredSystemPathBuf("test-form-direct.js")}
+2025-07-27T02:55:16.598281Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:55:20.797802Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("test-form-direct.js")}
+2025-07-27T02:55:20.797812Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:56:33.696515Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts"), AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts.tmp.22860.1753584993672")}
+2025-07-27T02:56:33.696660Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }}))

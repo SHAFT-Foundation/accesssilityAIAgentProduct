@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Live Site</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        .console { background: #2a2a2a; padding: 15px; border-radius: 8px; margin: 10px 0; }
+        .error { color: #ff6b6b; }
+        .warn { color: #feca57; }
+        .info { color: #48cae4; }
+        .success { color: #06ffa5; }
+        iframe { width: 100%; height: 500px; border: 1px solid #444; margin: 20px 0; }
+        button { padding: 10px 20px; margin: 5px; background: #0088ff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0066cc; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Live Site Debugging</h1>
+    <p>This page loads the live site and captures all console output to help debug the waitlist form.</p>
+    
+    <button onclick="startTest()">Load Live Site & Start Debug</button>
+    <button onclick="clearConsole()">Clear Console</button>
+    
+    <div id="console-output" class="console">
+        <div class="info">Click "Load Live Site & Start Debug" to begin...</div>
+    </div>
+    
+    <iframe id="live-site" style="display: none;"></iframe>
+    
+    <script>
+        let consoleCount = 0;
+        
+        function log(message, type = 'info') {
+            const console = document.getElementById('console-output');
+            const div = document.createElement('div');
+            div.className = type;
+            div.innerHTML = `[${++consoleCount}] ${new Date().toLocaleTimeString()}: ${message}`;
+            console.appendChild(div);
+            console.scrollTop = console.scrollHeight;
+        }
+        
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '';
+            consoleCount = 0;
+        }
+        
+        function startTest() {
+            log('🚀 Starting live site debug test...', 'info');
+            
+            const iframe = document.getElementById('live-site');
+            iframe.style.display = 'block';
+            
+            // Load the live site with a timestamp to ensure fresh load
+            const timestamp = Date.now();
+            iframe.src = `https://accessibility2.vercel.app?debug=${timestamp}`;
+            
+            iframe.onload = function() {
+                log('✅ Live site loaded successfully', 'success');
+                log('📝 Now try submitting an email in the form above to see console output', 'info');
+                log('🔍 Look for any errors or Supabase configuration issues', 'warn');
+                
+                // Try to capture console messages from iframe (limited by CORS)
+                try {
+                    const iframeWindow = iframe.contentWindow;
+                    if (iframeWindow && iframeWindow.console) {
+                        log('🎯 Console access available - monitoring...', 'success');
+                        
+                        // Override console methods in iframe
+                        const originalLog = iframeWindow.console.log;
+                        const originalError = iframeWindow.console.error;
+                        const originalWarn = iframeWindow.console.warn;
+                        
+                        iframeWindow.console.log = function(...args) {
+                            log(`LOG: ${args.join(' ')}`, 'info');
+                            originalLog.apply(this, args);
+                        };
+                        
+                        iframeWindow.console.error = function(...args) {
+                            log(`ERROR: ${args.join(' ')}`, 'error');
+                            originalError.apply(this, args);
+                        };
+                        
+                        iframeWindow.console.warn = function(...args) {
+                            log(`WARN: ${args.join(' ')}`, 'warn');
+                            originalWarn.apply(this, args);
+                        };
+                    }
+                } catch (e) {
+                    log(`⚠️ Cannot access iframe console due to CORS: ${e.message}`, 'warn');
+                    log('💡 Open browser dev tools to see console output directly', 'info');
+                }
+            };
+            
+            iframe.onerror = function() {
+                log('❌ Failed to load live site', 'error');
+            };
+        }
+        
+        // Auto-start test
+        window.onload = function() {
+            log('🔧 Debug page ready. Click button to start testing.', 'info');
+        };
+    </script>
+</body>
+</html>
