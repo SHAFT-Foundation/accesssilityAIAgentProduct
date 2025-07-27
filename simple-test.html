@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Waitlist Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .result { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #0056b3; }
+        input { padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 4px; width: 300px; }
+        .test-form { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🎯 Waitlist Form Test</h1>
+    <p>This will test the waitlist form directly using the same Supabase configuration as the deployed site.</p>
+    
+    <div class="test-form">
+        <h3>Test Waitlist Submission</h3>
+        <input type="email" id="testEmail" placeholder="Enter test email" value="" />
+        <button onclick="testWaitlist()">Submit to Waitlist</button>
+        <button onclick="clearResults()">Clear Results</button>
+    </div>
+    
+    <div id="results"></div>
+    
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        let resultCount = 0;
+        
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = `<strong>${++resultCount}.</strong> ${new Date().toLocaleTimeString()}: ${message}`;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            resultCount = 0;
+        }
+        
+        function generateTestEmail() {
+            return `test-${Date.now()}@example.com`;
+        }
+        
+        async function testWaitlist() {
+            const emailInput = document.getElementById('testEmail');
+            let email = emailInput.value.trim();
+            
+            if (!email) {
+                email = generateTestEmail();
+                emailInput.value = email;
+            }
+            
+            addResult(`🧪 Testing waitlist submission with email: ${email}`, 'info');
+            
+            try {
+                // Create Supabase client with the same config as the deployed site
+                addResult('📡 Creating Supabase client...', 'info');
+                const supabase = window.supabase.createClient(
+                    'https://uyvlawgxlzddsoikmmjm.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5dmxhd2d4bHpkZHNvaWttbWptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1Njg1NTYsImV4cCI6MjA2OTE0NDU1Nn0.tEZ98ILmkTbm7poHwAUdK04-2Jcmfs2HghNZAo1oc2M'
+                );
+                
+                addResult('✅ Supabase client created successfully', 'success');
+                
+                // Test the exact same insert operation as the waitlist form
+                addResult('💾 Inserting email into waitlist table...', 'info');
+                const { data, error } = await supabase
+                    .from('waitlist')
+                    .insert([
+                        { 
+                            email: email,
+                            source: 'simple_test',
+                            metadata: {
+                                userAgent: navigator.userAgent,
+                                referrer: document.referrer,
+                                timestamp: new Date().toISOString(),
+                                test: true
+                            }
+                        }
+                    ]);
+
+                if (error) {
+                    if (error.code === '23505') {
+                        addResult(`⚠️ Email ${email} already exists in waitlist`, 'info');
+                        addResult('✅ This means the waitlist is working! (Duplicate email protection active)', 'success');
+                    } else {
+                        addResult(`❌ Waitlist submission failed: ${error.message}`, 'error');
+                        addResult(`Error code: ${error.code}`, 'error');
+                        console.error('Supabase error:', error);
+                    }
+                } else {
+                    addResult(`🎉 SUCCESS! Email ${email} successfully added to waitlist!`, 'success');
+                    
+                    // Get updated count
+                    try {
+                        const { count, error: countError } = await supabase
+                            .from('waitlist')
+                            .select('*', { count: 'exact', head: true });
+                        
+                        if (!countError && count !== null) {
+                            addResult(`📊 Total waitlist count: ${count} emails`, 'success');
+                        }
+                    } catch (e) {
+                        addResult('Count check failed, but submission was successful', 'info');
+                    }
+                }
+                
+            } catch (err) {
+                addResult(`❌ Exception during test: ${err.message}`, 'error');
+                console.error('Exception:', err);
+            }
+        }
+        
+        // Auto-generate email on page load
+        window.onload = function() {
+            document.getElementById('testEmail').value = generateTestEmail();
+            addResult('🚀 Test page loaded. Click "Submit to Waitlist" to test!', 'info');
+            addResult('📝 A random test email has been pre-filled for you.', 'info');
+        };
+    </script>
+</body>
+</html>

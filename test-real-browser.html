@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real Browser Waitlist Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        #iframe-container { border: 1px solid #ccc; margin: 20px 0; }
+        iframe { width: 100%; height: 600px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Real Browser Waitlist Form Test</h1>
+    
+    <div id="results"></div>
+    
+    <button onclick="testWithIframe()">Test in Iframe</button>
+    <button onclick="testDirectly()">Test Directly</button>
+    <button onclick="clearResults()">Clear Results</button>
+    
+    <div id="iframe-container" style="display: none;">
+        <iframe id="test-iframe" src="https://accessibility2.vercel.app"></iframe>
+    </div>
+    
+    <script>
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `${new Date().toLocaleTimeString()}: ${message}`;
+            results.appendChild(div);
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+        
+        function testWithIframe() {
+            addResult('Testing waitlist form in iframe...', 'info');
+            const container = document.getElementById('iframe-container');
+            container.style.display = 'block';
+            
+            const iframe = document.getElementById('test-iframe');
+            iframe.onload = function() {
+                addResult('Site loaded in iframe. Try submitting an email in the form above.', 'success');
+                
+                // Try to access iframe content (will fail due to CORS but that's OK)
+                try {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    addResult('Iframe content accessible - can interact with form', 'success');
+                } catch (e) {
+                    addResult('Iframe content not accessible due to CORS (normal), but form should still work', 'info');
+                }
+            };
+        }
+        
+        async function testDirectly() {
+            addResult('Testing direct Supabase connection...', 'info');
+            
+            try {
+                // Load Supabase client
+                if (!window.supabase) {
+                    const script = document.createElement('script');
+                    script.src = 'https://unpkg.com/@supabase/supabase-js@2';
+                    document.head.appendChild(script);
+                    
+                    await new Promise(resolve => {
+                        script.onload = resolve;
+                    });
+                }
+                
+                const supabase = window.supabase.createClient(
+                    'https://uyvlawgxlzddsoikmmjm.supabase.co',
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5dmxhd2d4bHpkZHNvaWttbWptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1Njg1NTYsImV4cCI6MjA2OTE0NDU1Nn0.tEZ98ILmkTbm7poHwAUdK04-2Jcmfs2HghNZAo1oc2M'
+                );
+                
+                const testEmail = `direct-test-${Date.now()}@example.com`;
+                addResult(`Attempting to insert email: ${testEmail}`, 'info');
+                
+                const { data, error } = await supabase
+                    .from('waitlist')
+                    .insert([
+                        { 
+                            email: testEmail,
+                            source: 'direct_browser_test',
+                            metadata: {
+                                userAgent: navigator.userAgent,
+                                timestamp: new Date().toISOString(),
+                                test: true
+                            }
+                        }
+                    ]);
+
+                if (error) {
+                    addResult(`❌ Direct test failed: ${error.message}`, 'error');
+                    console.error('Supabase error:', error);
+                } else {
+                    addResult(`✅ Direct test successful! Email ${testEmail} added to waitlist.`, 'success');
+                    
+                    // Test fetching count
+                    const { count, error: countError } = await supabase
+                        .from('waitlist')
+                        .select('*', { count: 'exact', head: true });
+                    
+                    if (!countError) {
+                        addResult(`📊 Current waitlist count: ${count}`, 'success');
+                    }
+                }
+                
+            } catch (err) {
+                addResult(`❌ Exception during direct test: ${err.message}`, 'error');
+                console.error('Exception:', err);
+            }
+        }
+        
+        // Auto-run basic test on load
+        window.onload = function() {
+            addResult('🚀 Test page loaded. Click buttons above to test waitlist functionality.', 'info');
+            addResult('The iframe test loads the actual site - try submitting an email there.', 'info');
+            addResult('The direct test bypasses the site and tests Supabase directly.', 'info');
+        };
+    </script>
+</body>
+</html>

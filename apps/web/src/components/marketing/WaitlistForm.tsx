@@ -35,6 +35,11 @@ export function WaitlistForm({
     setErrorMessage('');
     
     try {
+      console.log('Submitting to waitlist with supabase config:', {
+        url: supabase.supabaseUrl,
+        hasKey: !!supabase.supabaseKey
+      });
+      
       const { error } = await supabase
         .from('waitlist')
         .insert([
@@ -67,8 +72,9 @@ export function WaitlistForm({
         }
       }
     } catch (error) {
+      console.error('Waitlist submission error:', error);
       setStatus('error');
-      setErrorMessage('Network error. Please try again.');
+      setErrorMessage(`Error: ${error.message || 'Network error. Please try again.'}`);
     }
   };
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Environment Variables</title>
+</head>
+<body>
+    <h1>Environment Variable Debug</h1>
+    <div id="result"></div>
+    
+    <script>
+        // Check what the deployed site is actually using
+        fetch('https://accessibility2.vercel.app')
+            .then(response => response.text())
+            .then(html => {
+                const result = document.getElementById('result');
+                
+                // Look for the supabase config in the page source
+                if (html.includes('placeholder.supabase.co')) {
+                    result.innerHTML += '<p>❌ PROBLEM: Site is using placeholder.supabase.co</p>';
+                } else if (html.includes('uyvlawgxlzddsoikmmjm.supabase.co')) {
+                    result.innerHTML += '<p>✅ Site is using correct Supabase URL</p>';
+                } else {
+                    result.innerHTML += '<p>⚠️ Could not find Supabase URL in page source</p>';
+                }
+                
+                if (html.includes('placeholder-key')) {
+                    result.innerHTML += '<p>❌ PROBLEM: Site is using placeholder-key</p>';
+                } else {
+                    result.innerHTML += '<p>✅ Site appears to have real Supabase key</p>';
+                }
+                
+                // Test direct connection
+                result.innerHTML += '<hr><h2>Testing Direct Connection</h2>';
+                
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/@supabase/supabase-js@2';
+                script.onload = function() {
+                    const supabase = window.supabase.createClient(
+                        'https://uyvlawgxlzddsoikmmjm.supabase.co',
+                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5dmxhd2d4bHpkZHNvaWttbWptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM1Njg1NTYsImV4cCI6MjA2OTE0NDU1Nn0.tEZ98ILmkTbm7poHwAUdK04-2Jcmfs2HghNZAo1oc2M'
+                    );
+                    
+                    supabase
+                        .from('waitlist')
+                        .insert([{ 
+                            email: `debug-test-${Date.now()}@example.com`,
+                            source: 'debug_script',
+                            metadata: { test: true }
+                        }])
+                        .then(({ error }) => {
+                            if (error) {
+                                result.innerHTML += `<p>❌ Direct test failed: ${error.message}</p>`;
+                            } else {
+                                result.innerHTML += '<p>✅ Direct test successful!</p>';
+                            }
+                        });
+                };
+                document.head.appendChild(script);
+            })
+            .catch(err => {
+                document.getElementById('result').innerHTML = `Error: ${err.message}`;
+            });
+    </script>
+</body>
+</html>
