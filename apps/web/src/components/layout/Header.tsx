@@ -31,7 +31,7 @@ export function Header() {
                 </div>
               </div>
               <span className="text-xl font-semibold text-shaft-black">
-                accessibility
+                Shaft Accessibility
               </span>
             </a>
           </div>
