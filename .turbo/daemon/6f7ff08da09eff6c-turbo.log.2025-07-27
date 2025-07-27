@@ -193,3 +193,19 @@
 2025-07-27T02:55:20.797812Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
 2025-07-27T02:56:33.696515Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts"), AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts.tmp.22860.1753584993672")}
 2025-07-27T02:56:33.696660Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-07-27T02:57:21.895034Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("test-waitlist-playwright.js.tmp.22860.1753585041822"), AnchoredSystemPathBuf("test-waitlist-playwright.js")}
+2025-07-27T02:57:21.895131Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:57:27.699914Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("test-waitlist-playwright.js")}
+2025-07-27T02:57:27.699926Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:57:41.607739Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-07-27T02:57:41.608053Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-07-27T02:57:42.300012Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package.json")}
+2025-07-27T02:57:42.300021Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(All)
+2025-07-27T02:57:42.594303Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("package-lock.json")}
+2025-07-27T02:57:42.594314Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:58:02.094673Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("waitlist-test-error.png")}
+2025-07-27T02:58:02.094731Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:58:24.496437Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("test-waitlist-playwright.js"), AnchoredSystemPathBuf("test-waitlist-playwright.js.tmp.22860.1753585104456")}
+2025-07-27T02:58:24.496450Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-07-27T02:58:58.893664Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts"), AnchoredSystemPathBuf("apps/web/src/lib/supabase.ts.tmp.22860.1753585138847")}
+2025-07-27T02:58:58.893706Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("web"), path: AnchoredSystemPathBuf("apps/web") }}))

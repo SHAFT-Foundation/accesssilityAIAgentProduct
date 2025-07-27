@@ -11,10 +11,20 @@ if (typeof window !== 'undefined') {
   console.log('Creating Supabase client...');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = createClient(supabaseUrl, supabaseKey, {
+  auth: {
+    persistSession: false
+  },
+  global: {
+    headers: {
+      'apikey': supabaseKey,
+    }
+  }
+})
 
 // Verify client is created properly
 if (typeof window !== 'undefined') {
   console.log('Supabase client created:', !!supabase);
   console.log('Supabase client URL:', supabase.supabaseUrl);
+  console.log('Supabase client key available:', !!supabase.supabaseKey);
 }
