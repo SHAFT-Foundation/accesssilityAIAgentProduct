@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
 import { useAnalytics } from '@/hooks/useAnalytics';
-import { supabase } from '@/lib/supabase';
 
 interface WaitlistFormProps {
   source?: string;
@@ -35,36 +34,31 @@ export function WaitlistForm({
     setErrorMessage('');
     
     try {
-      console.log('Submitting to waitlist with supabase config:', {
-        url: supabase.supabaseUrl,
-        hasKey: !!supabase.supabaseKey,
-        keyPrefix: supabase.supabaseKey?.substring(0, 20)
-      });
-      
-      // Test the supabase client by calling it directly
-      console.log('Supabase rest client:', supabase.rest);
-      console.log('Supabase headers:', supabase.rest?.headers);
-      
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([
-          { 
-            email,
-            source,
-            metadata: {
-              userAgent: navigator.userAgent,
-              referrer: document.referrer,
-              timestamp: new Date().toISOString(),
-            }
+      // Use secure API endpoint instead of direct Supabase access
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          source,
+          metadata: {
+            userAgent: navigator.userAgent,
+            referrer: document.referrer,
+            timestamp: new Date().toISOString(),
           }
-        ]);
+        }),
+      });
 
-      if (error) {
-        if (error.code === '23505') { // Unique constraint violation
+      const result = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 400) {
           setStatus('error');
-          setErrorMessage('Email already registered!');
+          setErrorMessage(result.error || 'Invalid email format');
         } else {
-          throw error;
+          throw new Error(result.error || 'Failed to add to waitlist');
         }
       } else {
         setStatus('success');
@@ -79,18 +73,17 @@ export function WaitlistForm({
     } catch (error) {
       console.error('Waitlist submission error:', error);
       setStatus('error');
-      setErrorMessage(`Error: ${error.message || 'Network error. Please try again.'}`);
+      setErrorMessage('Network error. Please try again.');
     }
   };
 
   const fetchWaitlistCount = async () => {
     try {
-      const { count, error } = await supabase
-        .from('waitlist')
-        .select('*', { count: 'exact', head: true });
+      const response = await fetch('/api/waitlist/count');
+      const result = await response.json();
       
-      if (!error && count !== null) {
-        setWaitlistCount(count);
+      if (response.ok && typeof result.count === 'number') {
+        setWaitlistCount(result.count);
       }
     } catch (error) {
       console.error('Failed to fetch waitlist count:', error);
