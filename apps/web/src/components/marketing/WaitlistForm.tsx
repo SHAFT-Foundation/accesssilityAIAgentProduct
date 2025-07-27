@@ -37,8 +37,13 @@ export function WaitlistForm({
     try {
       console.log('Submitting to waitlist with supabase config:', {
         url: supabase.supabaseUrl,
-        hasKey: !!supabase.supabaseKey
+        hasKey: !!supabase.supabaseKey,
+        keyPrefix: supabase.supabaseKey?.substring(0, 20)
       });
+      
+      // Test the supabase client by calling it directly
+      console.log('Supabase rest client:', supabase.rest);
+      console.log('Supabase headers:', supabase.rest?.headers);
       
       const { error } = await supabase
         .from('waitlist')

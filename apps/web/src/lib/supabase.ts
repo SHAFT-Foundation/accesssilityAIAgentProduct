@@ -13,12 +13,8 @@ if (typeof window !== 'undefined') {
 
 export const supabase = createClient(supabaseUrl, supabaseKey, {
   auth: {
-    persistSession: false
-  },
-  global: {
-    headers: {
-      'apikey': supabaseKey,
-    }
+    persistSession: false,
+    autoRefreshToken: false
   }
 })
 
