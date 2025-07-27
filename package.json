@@ -1,50 +1,27 @@
 {
-  "name": "accessibility-scanner",
-  "version": "1.0.0",
-  "description": "AI-powered accessibility scanner that creates PRs with fixes",
+  "name": "web",
+  "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "test:unit": "turbo run test:unit",
-    "test:integration": "turbo run test:integration",
-    "test:e2e": "cd tests/e2e && python -m pytest -v",
-    "test:e2e:install": "cd tests/e2e && pip install -r requirements.txt && playwright install",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
-    "clean": "turbo run clean",
-    "db:migrate": "cd apps/api && npm run db:migrate",
-    "db:seed": "cd apps/api && npm run db:seed",
-    "docker:build": "docker build -t accessibility-scanner-api apps/api",
-    "docker:run": "docker run -p 3001:3001 --env-file apps/api/.env accessibility-scanner-api"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "lucide-react": "^0.263.1",
+    "next": "^15.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.0.0",
-    "playwright": "^1.54.1",
-    "prettier": "^3.0.0",
-    "turbo": "^1.10.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.0.0"
-  },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=9"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryanmmmmm/accesssilityAIAgentProduct.git"
-  },
-  "author": "Ryan Medlin",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ryanmmmmm/accesssilityAIAgentProduct/issues"
-  },
-  "homepage": "https://github.com/ryanmmmmm/accesssilityAIAgentProduct#readme"
+  }
 }
