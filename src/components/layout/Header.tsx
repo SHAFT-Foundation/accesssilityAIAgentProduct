@@ -19,17 +19,14 @@ export function Header() {
     <header className="fixed top-0 w-full bg-white z-50 border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - Shaft Style */}
+          {/* Logo - Shaft Logo */}
           <div className="flex items-center">
             <a href="https://shaft.finance" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-shaft-black flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-0.5 w-5 h-5">
-                  <div className="bg-white w-full h-1.5"></div>
-                  <div className="bg-white w-full h-1"></div>
-                  <div className="bg-white w-full h-1"></div>
-                  <div className="bg-white w-full h-1.5"></div>
-                </div>
-              </div>
+              <img 
+                src="/Artboard 46.avif" 
+                alt="Shaft Foundation Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <span className="text-xl font-semibold text-shaft-black">
                 Shaft Accessibility Scanner
               </span>

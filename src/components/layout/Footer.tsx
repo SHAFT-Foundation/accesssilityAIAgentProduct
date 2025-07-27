@@ -127,10 +127,12 @@ export function Footer() {
 
           {/* Logo and shaft.finance */}
           <div className="flex items-center space-x-3">
-            <div className="text-3xl font-bold text-shaft-black">shaft</div>
-            <div className="w-8 h-8 bg-shaft-black text-white flex items-center justify-center font-bold text-sm">
-              m
-            </div>
+            <img 
+              src="/Artboard 46.avif" 
+              alt="Shaft Foundation Logo" 
+              className="w-12 h-12 object-contain"
+            />
+            <div className="text-2xl font-bold text-shaft-black">shaft</div>
           </div>
         </div>
       </div>
