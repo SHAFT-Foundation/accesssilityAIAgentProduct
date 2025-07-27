@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://accessibility-scanner.com'),
+  metadataBase: new URL('https://accessibility.shaft.finance'),
   title: {
-    default: 'AI Accessibility Scanner - Automated WCAG Compliance with PR Fixes',
-    template: '%s | AI Accessibility Scanner'
+    default: 'Shaft Accessibility Scanner - Automated WCAG Compliance with PR Fixes',
+    template: '%s | Shaft Accessibility Scanner'
   },
   description: 'The only accessibility tool that submits PRs with actual code fixes. Our AI agents scan your site, write the fix, test it, and submit a PR. Enterprise-grade security with ephemeral environments.',
   keywords: [

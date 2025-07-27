@@ -12,13 +12,13 @@ export function Footer() {
             <h3 className="text-shaft-black font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
               <a 
-                href="mailto:hello@accessibility-scanner.com" 
+                href="mailto:fib@shaft.finance" 
                 className="text-shaft-gray hover:text-shaft-black text-sm block transition-colors"
               >
-                hello@accessibility-scanner.com
+                fib@shaft.finance
               </a>
               <div className="text-shaft-gray text-sm">
-                <p>Accessibility Scanner</p>
+                <p>Shaft Finance</p>
                 <p>San Francisco, CA</p>
                 <p>United States</p>
               </div>
@@ -120,15 +120,15 @@ export function Footer() {
                 <div className="bg-white w-full h-1.5"></div>
               </div>
             </div>
-            <span className="text-xl font-semibold text-shaft-black">
-              accessibility
-            </span>
+            <a href="https://shaft.finance" className="text-xl font-semibold text-shaft-black hover:text-shaft-red transition-colors">
+              Shaft Accessibility Scanner
+            </a>
           </div>
 
           {/* Social Links */}
           <div className="flex space-x-4">
             <a 
-              href="https://github.com/accessibility-scanner" 
+              href="https://github.com/SHAFT-Foundation" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-shaft-gray hover:text-shaft-black transition-colors"
@@ -136,7 +136,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://twitter.com/AccessibilityAI" 
+              href="https://twitter.com/shaft_finance" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-shaft-gray hover:text-shaft-black transition-colors"
@@ -144,7 +144,7 @@ export function Footer() {
               <Twitter className="h-5 w-5" />
             </a>
             <a 
-              href="https://linkedin.com/company/accessibility-scanner" 
+              href="https://linkedin.com/company/shaft-finance" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-shaft-gray hover:text-shaft-black transition-colors"
@@ -152,7 +152,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a 
-              href="mailto:hello@accessibility-scanner.com"
+              href="mailto:fib@shaft.finance"
               className="text-shaft-gray hover:text-shaft-black transition-colors"
             >
               <Mail className="h-5 w-5" />
@@ -163,7 +163,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-8 text-center">
           <p className="text-shaft-gray text-sm">
-            © 2025 Accessibility Scanner. Making the web accessible with AI.
+            © 2025 Shaft Finance. Making the web accessible with AI.
           </p>
         </div>
       </div>

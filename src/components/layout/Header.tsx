@@ -21,7 +21,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo - Shaft Style */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-3">
+            <a href="https://shaft.finance" className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-shaft-black flex items-center justify-center">
                 <div className="grid grid-cols-2 gap-0.5 w-5 h-5">
                   <div className="bg-white w-full h-1.5"></div>
@@ -31,7 +31,7 @@ export function Header() {
                 </div>
               </div>
               <span className="text-xl font-semibold text-shaft-black">
-                Shaft Accessibility
+                Shaft Accessibility Scanner
               </span>
             </a>
           </div>
