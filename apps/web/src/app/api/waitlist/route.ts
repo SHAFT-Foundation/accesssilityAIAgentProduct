@@ -14,7 +14,12 @@ const supabase = createClient(supabaseUrl, supabaseKey, {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Waitlist API called');
+    console.log('Supabase URL:', supabaseUrl);
+    console.log('Supabase Key prefix:', supabaseKey.substring(0, 20));
+    
     const { email, source, metadata } = await request.json();
+    console.log('Request data:', { email, source, metadata });
 
     // Validate input
     if (!email || typeof email !== 'string') {
@@ -27,6 +32,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
     }
 
+    console.log('Attempting to insert into waitlist...');
+    
     // Insert into waitlist with server-side security
     const { data, error } = await supabase
       .from('waitlist')
@@ -43,19 +50,30 @@ export async function POST(request: NextRequest) {
         }
       ]);
 
+    console.log('Supabase response:', { data, error });
+
     if (error) {
       if (error.code === '23505') {
         // Duplicate email - return success to prevent email enumeration
+        console.log('Duplicate email, returning success');
         return NextResponse.json({ success: true, message: 'Email added to waitlist' });
       }
       
       console.error('Waitlist insertion error:', error);
-      return NextResponse.json({ error: 'Failed to add to waitlist' }, { status: 500 });
+      return NextResponse.json({ 
+        error: 'Failed to add to waitlist', 
+        debug: error.message,
+        code: error.code 
+      }, { status: 500 });
     }
 
+    console.log('Successfully added to waitlist');
     return NextResponse.json({ success: true, message: 'Email added to waitlist' });
   } catch (error) {
     console.error('Waitlist API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Internal server error', 
+      debug: error.message 
+    }, { status: 500 });
   }
 }
