@@ -101,8 +101,15 @@ export function HowItWorks() {
             <p className="text-gray-600 mb-6">
               Join hundreds of developers who have automated their accessibility workflow.
             </p>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Start Free Trial
+            <button 
+              onClick={() => {
+                const element = document.getElementById('waitlist');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              Get Early Access
             </button>
           </div>
         </div>

@@ -48,8 +48,15 @@ export function TrustSignals() {
             Join the developers who have automated their accessibility compliance. 
             Get started with 2 free PRs - no credit card required.
           </p>
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
-            Start Free - Get 2 PRs
+          <button 
+            onClick={() => {
+              const element = document.getElementById('waitlist');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+            Get Early Access
           </button>
         </div>
       </div>

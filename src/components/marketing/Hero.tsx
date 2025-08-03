@@ -10,7 +10,10 @@ export function Hero() {
 
   const handleStartFree = () => {
     analytics.clickCTA('start_free_hero', 'hero_section');
-    window.scrollTo({ top: document.getElementById('pricing')?.offsetTop, behavior: 'smooth' });
+    const element = document.getElementById('waitlist');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleWatchDemo = () => {

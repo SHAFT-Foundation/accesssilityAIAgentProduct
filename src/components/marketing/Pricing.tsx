@@ -142,6 +142,12 @@ export function Pricing() {
               </ul>
 
               <button
+                onClick={() => {
+                  const element = document.getElementById('waitlist');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className={`mt-8 w-full py-3 px-4 rounded-lg font-semibold transition-colors ${
                   plan.popular
                     ? 'bg-blue-600 text-white hover:bg-blue-700'
@@ -197,8 +203,15 @@ export function Pricing() {
             Let's discuss your specific requirements for multiple repositories, 
             custom integrations, or enterprise legal protection features.
           </p>
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-            Schedule a Call
+          <button 
+            onClick={() => {
+              const element = document.getElementById('waitlist');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            Get Early Access
           </button>
         </div>
       </div>

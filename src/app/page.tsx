@@ -83,7 +83,7 @@ export default function Home() {
         <TrustSignals />
         
         {/* Waitlist CTA Section */}
-        <section className="bg-shaft-light-gray py-16">
+        <section id="waitlist" className="bg-shaft-light-gray py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold tracking-tight text-shaft-black sm:text-4xl">
