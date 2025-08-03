@@ -1,3 +1,5 @@
+'use client';
+
 import { Shield, CheckCircle } from 'lucide-react';
 
 export function TrustSignals() {

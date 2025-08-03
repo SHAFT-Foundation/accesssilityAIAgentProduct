@@ -1,3 +1,5 @@
+'use client';
+
 import { Github, Scan, Bot, TestTube2, Eye } from 'lucide-react';
 
 export function HowItWorks() {
