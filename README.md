@@ -1,9 +1,11 @@
 # AI Accessibility Scanner - Automated WCAG Compliance with PR Fixes
 
-https://accessibility-ai-scanner.vercel.app/
+
 
 > As AI agents begin to power everything from productivity tools to financial services, those built with full accessibility and inclusion by design aren't just ethically aligned—they are more interoperable, more likely to be adopted, and more trusted in the emerging networks of AI agents that interact, evaluate, and select one another.
 > In this new paradigm, accessibility isn't a feature—it's a network advantage.
+
+Current Demo: https://accessibility-ai-scanner.vercel.app/
 
 ![Screenshot 1](https://github.com/SHAFT-Foundation/accesssilityAIAgentProduct/blob/main/apps/web/public/Screenshot%202025-07-26%20at%202.35.26%E2%80%AFPM.png?raw=true)
 ![Screenshot 2](https://github.com/SHAFT-Foundation/accesssilityAIAgentProduct/blob/main/apps/web/public/Screenshot%202025-07-26%20at%202.48.42%E2%80%AFPM.png?raw=true)
