@@ -238,18 +238,41 @@ export function AccessibilityMCPDemo() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center rounded-full bg-shaft-pink px-4 py-2 text-sm font-semibold text-shaft-red mb-4">
+          <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 mb-4">
             <Brain className="mr-2 h-4 w-4" />
-            MCP PROTOCOL DEMONSTRATION
+            SEPARATE PRODUCT: BROWSER EXTENSION
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-shaft-black sm:text-5xl">
-            See How AI Agents Transform{' '}
-            <span className="text-shaft-red">Accessibility</span>
+            End-User Accessibility{' '}
+            <span className="text-blue-600">Browser Extension</span>
           </h2>
           <p className="mt-4 text-lg text-shaft-gray max-w-3xl mx-auto">
-            Watch our MCP protocol orchestrate specialized AI agents to provide rich, 
-            contextual descriptions for vision impaired users navigating complex visual content.
+            This is a <strong>different product</strong> from our main AI scanner above. 
+            This browser extension helps vision impaired users navigate websites in real-time 
+            using MCP protocol and specialized AI agents.
           </p>
+          
+          {/* Product Differentiation */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-shaft-pink rounded-lg p-6 border-l-4 border-shaft-red">
+              <h3 className="text-lg font-semibold text-shaft-black mb-2">
+                🛠️ Main Product: AI Code Scanner
+              </h3>
+              <p className="text-sm text-shaft-gray">
+                For <strong>developers</strong> - Scans your codebase, fixes WCAG violations, 
+                and submits GitHub PRs with actual code fixes.
+              </p>
+            </div>
+            <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
+              <h3 className="text-lg font-semibold text-shaft-black mb-2">
+                🌐 Browser Extension: Real-Time Helper  
+              </h3>
+              <p className="text-sm text-shaft-gray">
+                For <strong>end users</strong> - Helps vision impaired users understand 
+                inaccessible content on any website in real-time.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Use Case Scenario */}
@@ -262,31 +285,31 @@ export function AccessibilityMCPDemo() {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Real-World Scenario: Sarah's Challenge
+                Browser Extension Use Case: Sarah's Challenge
               </h3>
               <p className="text-gray-600 mb-4">
-                Sarah, a product manager with 5% vision, needs to analyze a complex competitor 
-                comparison chart on TechCrunch. The chart contains 52 data points across 10 
-                platforms—impossible to understand with standard screen readers that only 
-                announce "Image" or "Chart".
+                Sarah, a product manager with 5% vision, visits TechCrunch and encounters a complex 
+                competitor comparison chart. With our <strong>browser extension</strong> installed, 
+                it automatically detects her screen reader and the inaccessible content, then 
+                coordinates AI agents to provide rich descriptions in real-time.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div className="bg-red-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-red-900 mb-2">Without Our Tool</h4>
+                  <h4 className="font-semibold text-red-900 mb-2">Without Browser Extension</h4>
                   <ul className="text-sm text-red-700 space-y-1">
-                    <li>• Takes 45+ minutes to understand</li>
-                    <li>• Misses critical insights</li>
-                    <li>• Only gets 30% of information</li>
-                    <li>• Cannot compare data points</li>
+                    <li>• Screen reader announces "Image"</li>
+                    <li>• No context or data insights</li>
+                    <li>• Must ask colleagues for help</li>
+                    <li>• Cannot navigate complex visuals</li>
                   </ul>
                 </div>
                 <div className="bg-green-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-green-900 mb-2">With Our Tool</h4>
+                  <h4 className="font-semibold text-green-900 mb-2">With Browser Extension</h4>
                   <ul className="text-sm text-green-700 space-y-1">
-                    <li>• Complete understanding in &lt; 10 min</li>
-                    <li>• All insights captured</li>
-                    <li>• 95% information retention</li>
-                    <li>• Interactive data exploration</li>
+                    <li>• Automatic AI analysis in real-time</li>
+                    <li>• Rich descriptions with insights</li>
+                    <li>• Keyboard navigation hints</li>
+                    <li>• Independent web browsing</li>
                   </ul>
                 </div>
               </div>
@@ -919,8 +942,15 @@ class GPT4VisionAgent {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-4">
+        <div className="mt-12 text-center bg-blue-50 rounded-xl p-8">
+          <h3 className="text-xl font-semibold text-shaft-black mb-4">
+            Interested in This Browser Extension?
+          </h3>
+          <p className="text-shaft-gray mb-6 max-w-2xl mx-auto">
+            This MCP-powered browser extension is a separate product in development. 
+            Our main focus remains the AI code scanner for developers.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
             <button 
               onClick={() => {
                 const element = document.getElementById('waitlist');
@@ -928,24 +958,22 @@ class GPT4VisionAgent {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="px-8 py-3 bg-shaft-red text-white font-semibold rounded-lg hover:bg-red-700 transition-colors shadow-lg"
+              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
             >
-              Get Early Access
+              Join Browser Extension Waitlist
             </button>
             <button 
               onClick={() => {
-                const element = document.getElementById('waitlist');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="px-8 py-3 bg-white text-shaft-black font-semibold rounded-lg border-2 border-shaft-gray hover:bg-shaft-light-gray transition-colors"
+              className="px-8 py-3 bg-shaft-red text-white font-semibold rounded-lg hover:bg-red-700 transition-colors"
             >
-              Join Waitlist
+              Back to Main AI Scanner
             </button>
           </div>
-          <p className="mt-4 text-sm text-shaft-gray">
-            Be the first to experience MCP-powered accessibility transformation
+          <p className="mt-4 text-sm text-blue-600">
+            <strong>Note:</strong> This is a concept demo for a future product. 
+            Sign up for our main AI scanner above to get started with accessibility fixes today.
           </p>
         </div>
       </div>
