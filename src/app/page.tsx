@@ -13,6 +13,7 @@ import { TrustSignals } from '@/components/marketing/TrustSignals';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { WaitlistForm } from '@/components/marketing/WaitlistForm';
+import { AccessibilityMCPDemo } from '@/components/demo/AccessibilityMCPDemo';
 
 // FAQ Schema for better SEO
 const faqSchema = {
@@ -66,6 +67,7 @@ export default function Home() {
         <Hero />
         <ValueProposition />
         <AIAgentSection />
+        <AccessibilityMCPDemo />
         <NetworkAdvantage />
         <ProblemSection />
         <SolutionSection />

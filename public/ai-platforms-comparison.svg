@@ -1,0 +1,95 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    AI Development Platforms Comparison 2024
+  </text>
+  
+  <!-- Table Header -->
+  <rect x="50" y="70" width="700" height="40" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="120" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Platform</text>
+  <text x="250" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Pricing</text>
+  <text x="350" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Features</text>
+  <text x="450" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">MCP Support</text>
+  <text x="550" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Rating</text>
+  <text x="650" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Market Share</text>
+  
+  <!-- Row 1 - CloudAI Pro -->
+  <rect x="50" y="110" width="700" height="40" fill="#ffffff" stroke="#dee2e6"/>
+  <text x="60" y="135" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">CloudAI Pro</text>
+  <text x="250" y="135" font-family="Arial, sans-serif" font-size="12">$299/mo</text>
+  <text x="350" y="135" font-family="Arial, sans-serif" font-size="12">★★★★★</text>
+  <text x="450" y="135" font-family="Arial, sans-serif" font-size="12" fill="#28a745">✓ Native</text>
+  <text x="550" y="135" font-family="Arial, sans-serif" font-size="12">4.8/5</text>
+  <text x="650" y="135" font-family="Arial, sans-serif" font-size="12">23%</text>
+  
+  <!-- Row 2 - BudgetML -->
+  <rect x="50" y="150" width="700" height="40" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="60" y="175" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">BudgetML</text>
+  <text x="250" y="175" font-family="Arial, sans-serif" font-size="12">$29/mo</text>
+  <text x="350" y="175" font-family="Arial, sans-serif" font-size="12">★★★☆☆</text>
+  <text x="450" y="175" font-family="Arial, sans-serif" font-size="12" fill="#dc3545">✗ None</text>
+  <text x="550" y="175" font-family="Arial, sans-serif" font-size="12">4.2/5</text>
+  <text x="650" y="175" font-family="Arial, sans-serif" font-size="12">8%</text>
+  
+  <!-- Row 3 - Enterprise AI -->
+  <rect x="50" y="190" width="700" height="40" fill="#ffffff" stroke="#dee2e6"/>
+  <text x="60" y="215" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">Enterprise AI</text>
+  <text x="250" y="215" font-family="Arial, sans-serif" font-size="12">$899/mo</text>
+  <text x="350" y="215" font-family="Arial, sans-serif" font-size="12">★★★★★</text>
+  <text x="450" y="215" font-family="Arial, sans-serif" font-size="12" fill="#ffc107">~ Partial</text>
+  <text x="550" y="215" font-family="Arial, sans-serif" font-size="12">4.6/5</text>
+  <text x="650" y="215" font-family="Arial, sans-serif" font-size="12">19%</text>
+  
+  <!-- Row 4 - OpenSource ML -->
+  <rect x="50" y="230" width="700" height="40" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="60" y="255" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">OpenSource ML</text>
+  <text x="250" y="255" font-family="Arial, sans-serif" font-size="12">Free</text>
+  <text x="350" y="255" font-family="Arial, sans-serif" font-size="12">★★★★☆</text>
+  <text x="450" y="255" font-family="Arial, sans-serif" font-size="12" fill="#28a745">✓ Full</text>
+  <text x="550" y="255" font-family="Arial, sans-serif" font-size="12">4.4/5</text>
+  <text x="650" y="255" font-family="Arial, sans-serif" font-size="12">15%</text>
+  
+  <!-- Row 5 - FastTrain -->
+  <rect x="50" y="270" width="700" height="40" fill="#ffffff" stroke="#dee2e6"/>
+  <text x="60" y="295" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">FastTrain</text>
+  <text x="250" y="295" font-family="Arial, sans-serif" font-size="12">$149/mo</text>
+  <text x="350" y="295" font-family="Arial, sans-serif" font-size="12">★★★☆☆</text>
+  <text x="450" y="295" font-family="Arial, sans-serif" font-size="12" fill="#dc3545">✗ None</text>
+  <text x="550" y="295" font-family="Arial, sans-serif" font-size="12">4.1/5</text>
+  <text x="650" y="295" font-family="Arial, sans-serif" font-size="12">12%</text>
+  
+  <!-- Additional rows -->
+  <rect x="50" y="310" width="700" height="40" fill="#f8f9fa" stroke="#dee2e6"/>
+  <text x="60" y="335" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" font-weight="bold">NeuralNet Pro</text>
+  <text x="250" y="335" font-family="Arial, sans-serif" font-size="12">$199/mo</text>
+  <text x="350" y="335" font-family="Arial, sans-serif" font-size="12">★★★★☆</text>
+  <text x="450" y="335" font-family="Arial, sans-serif" font-size="12" fill="#ffc107">~ Partial</text>
+  <text x="550" y="335" font-family="Arial, sans-serif" font-size="12">4.3/5</text>
+  <text x="650" y="335" font-family="Arial, sans-serif" font-size="12">10%</text>
+  
+  <!-- Chart visualization -->
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">
+    Market Share Distribution
+  </text>
+  
+  <!-- Simple bar chart -->
+  <rect x="100" y="400" width="115" height="20" fill="#0066cc"/>
+  <text x="90" y="415" font-family="Arial, sans-serif" font-size="10" text-anchor="end">CloudAI Pro (23%)</text>
+  
+  <rect x="100" y="430" width="95" height="20" fill="#28a745"/>
+  <text x="90" y="445" font-family="Arial, sans-serif" font-size="10" text-anchor="end">Enterprise AI (19%)</text>
+  
+  <rect x="100" y="460" width="75" height="20" fill="#ffc107"/>
+  <text x="90" y="475" font-family="Arial, sans-serif" font-size="10" text-anchor="end">OpenSource ML (15%)</text>
+  
+  <rect x="100" y="490" width="60" height="20" fill="#dc3545"/>
+  <text x="90" y="505" font-family="Arial, sans-serif" font-size="10" text-anchor="end">FastTrain (12%)</text>
+  
+  <!-- Footer note -->
+  <text x="400" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">
+    Data compiled from industry reports and user surveys - Q4 2024
+  </text>
+</svg>
