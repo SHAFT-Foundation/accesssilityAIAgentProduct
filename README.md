@@ -1,4 +1,4 @@
-# AI Accessibility Scanner - Automated WCAG Compliance with PR Fixes
+# AI Accessibility Scanner - Automated WCAG Compliance with PR Fixes  
 
 
 
